@@ -1,0 +1,7 @@
+com\jonathan\erp\repository\SchemaGeneration.class
+com\jonathan\erp\model\entities\Company.class
+com\jonathan\erp\repository\Companies.class
+com\jonathan\erp\model\entities\AreaActivity.class
+com\jonathan\erp\repository\PersistenceLayer.class
+com\jonathan\erp\repository\AreaActivities.class
+com\jonathan\erp\model\entities\enums\TypeCompany.class
