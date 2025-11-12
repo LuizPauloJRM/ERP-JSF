@@ -4,7 +4,8 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template="/WEB-INF/template/Layout.xhtml"><!-- Para usar o template Layout -->
+	template="/WEB-INF/template/Layout.xhtml">
+	<!-- Para usar o template Layout -->
 	<!--  	http://localhost:8080/curso-jsf-e-primefaces-essencial/GestaoEmpresas.xhtml -->
 	<ui:define name="titulo">
 	Cadastro de Empresas
@@ -153,5 +154,8 @@
 			</p:dialog>
 		</h:form>
 		<p:separator />
+		<!-- Inclui o cadastro de funcionários logo abaixo do cadastro de empresas -->
+		<ui:include src="/WEB-INF/pages/funcionarios/cadastro-funcionario.xhtml" />
+		
 	</ui:define>
 </ui:composition>
