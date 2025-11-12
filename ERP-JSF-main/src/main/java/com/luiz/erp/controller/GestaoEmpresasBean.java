@@ -60,8 +60,6 @@ public class GestaoEmpresasBean implements Serializable {
         
         messages.info("Empresa salva com sucesso!");
         
-        RequestContext.getCurrentInstance().update(Arrays.asList(
-                "frm:empresasDataTable", "frm:messages"));
     }
     
     public void excluir() {

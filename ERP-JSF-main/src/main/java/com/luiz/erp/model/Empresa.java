@@ -26,11 +26,16 @@ import org.hibernate.validator.constraints.br.CNPJ;
 public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	/*Id*/
+	/*
+	 * Classe mapeada com entity (referenciar banco de dados , automatizada pelo hibernate)
+	 * PrimaryKey e atributos
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+	//@NotEmpty uma validação faz uso da implementação da classe @NotNull  isValid() se for maior que 0 verificação
 	@NotEmpty
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
@@ -51,15 +56,19 @@ public class Empresa implements Serializable {
 	private Date dataFundacao;
 	
 	@NotNull
+	//Muitos para um 
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
 	
 	@NotNull
 	@Enumerated(EnumType.STRING)
+	//Obrigando
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
 	
+	
+	/*Setters e Getters*/
 	public Long getId() {
 		return id;
 	}

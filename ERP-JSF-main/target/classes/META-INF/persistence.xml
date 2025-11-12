@@ -9,11 +9,11 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<properties>
-			<!-- Configuração do banco -->
+			<!-- Configuração do banco de dados -->
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
-
-			<property name="javax.persistence.jdbc.url"
+			<!-- Local banco : indicando para seu banco e porta cursojsfprimefaces -->
+			<property name="javax.persistence.jdbc.url"				
 				value="jdbc:mysql://localhost:3306/cursojsfprimefaces?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

@@ -4,40 +4,61 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
 <h:head>
-
 	<meta charset="UTF-8" />
-	<title>Gestão Empresas</title>
-
+	<title>Gestão Empresarial</title>
 	<h:outputStylesheet library="assets" name="estilo.css" />
-
 </h:head>
 
 <h:body>
+
 	<header>
 		<h1>Developer's Java LTDA</h1>
 	</header>
 
+	<div id="container">
+		<!-- MENU LATERAL -->
+		<div id="sidebar">
+			<h3>Menu</h3>
+<!-- 			<h:form> -->
+<!-- 				<p:commandLink value=" Empresas" -->
+<!-- 					action="/pages/empresas/gestaoEmpresas.xhtml?faces-redirect=true" -->
+<!-- 					styleClass="menu-item" /> -->
+					
+<!-- 				<p:commandLink value=" RH" -->
+<!-- 					action="/pages/cadastro-funcionario.xhtml?faces-redirect=true" -->
+<!-- 					styleClass="menu-item" /> -->
+					
+<!-- 				<p:commandLink value=" Financeiro" -->
+<!-- 					action="/pages/financeiro/cadastro-lancamento.xhtml?faces-redirect=true" -->
+<!-- 					styleClass="menu-item" /> -->
+<!-- 				<p:commandLink value=" Relatórios" action="#" styleClass="menu-item" /> -->
+<!-- 			</h:form> -->
+		</div>
 
-
-	<div id="conteudo">
-		<h2>
-			<ui:insert name="titulo" />
-		</h2>
-		<ui:insert name="conteudo" />
+		<!-- CONTEÚDO PRINCIPAL -->
+		<div id="conteudo">
+			<h2>
+				<ui:insert name="titulo" />
+			</h2>
+			<ui:insert name="conteudo" />
+		</div>
 	</div>
 
-	<footer> Desenvolvido por Jonathan Guimarães </footer>
+	<footer>
+		<p>Luiz Paulo LTDA - Sistema ERP JSF</p>
+	</footer>
 
 	<h:form>
 		<p:confirmDialog global="true">
 			<p:commandButton value="Não" icon="fa fa-remove"
 				styleClass="ui-confirmdialog-no" />
-
 			<p:commandButton value="Sim" icon="fa fa-check"
 				styleClass="ui-confirmdialog-yes" />
 		</p:confirmDialog>
 	</h:form>
-</h:body>
+	
 
+</h:body>
 </html>

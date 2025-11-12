@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/*Para gerar tabela dno banco*/
 @Entity
 @Table(name = "ramo_atividade")
 public class RamoAtividade implements Serializable {
