@@ -1,1 +1,38 @@
 /.metadata/
+.metadata/.lock_info
+.metadata/.log
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache
+.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
+.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml
+.metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser
+.metadata/.plugins/org.eclipse.m2e.logback/0.log
+.metadata/.plugins/org.eclipse.pde.core/.cache/clean-cache.properties
+.metadata/.plugins/org.eclipse.swt/EBWebView/Crashpad/settings.dat
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/DawnGraphiteCache/data_1
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/DawnWebGPUCache/data_1
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/DIPS
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Extension State/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/favorites_diagnostic.log
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/GPUCache/data_1
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/History
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/History-journal
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Local Storage/leveldb/000003.log
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Local Storage/leveldb/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Preferences
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Session Storage/000003.log
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Session Storage/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/shared_proto_db/000003.log
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/shared_proto_db/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/shared_proto_db/metadata/000003.log
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/shared_proto_db/metadata/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Site Characteristics Database/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/Default/Sync Data/LevelDB/LOG
+.metadata/.plugins/org.eclipse.swt/EBWebView/GraphiteDawnCache/data_1
+.metadata/.plugins/org.eclipse.swt/EBWebView/GrShaderCache/data_0
+.metadata/.plugins/org.eclipse.swt/EBWebView/GrShaderCache/data_1
+.metadata/.plugins/org.eclipse.swt/EBWebView/Local State
+.metadata/.plugins/org.eclipse.swt/EBWebView/ShaderCache/data_1
+.metadata/.plugins/org.eclipse.swt/EBWebView/Variations
+.metadata/version.ini
