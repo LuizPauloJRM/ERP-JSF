@@ -13,7 +13,7 @@ public class FuncionarioService {
     // EntityManagerFactory é a "fábrica" de conexões com o banco
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cadastrosbasicos");
 
-    // 🔹 Método para salvar (inserir) um funcionário no banco
+    // Método para salvar (inserir) um funcionário no banco
     public void salvar(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -28,7 +28,7 @@ public class FuncionarioService {
         }
     }
 
-    // 🔹 Método para atualizar um funcionário existente
+    //Método para atualizar um funcionário existente
     public void atualizar(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
         try {
