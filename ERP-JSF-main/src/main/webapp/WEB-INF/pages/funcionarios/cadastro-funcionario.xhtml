@@ -1,32 +1,121 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <!-- FORMULÁRIO PRINCIPAL -->
     <h:form id="formFuncionario">
+
+        <!-- ===================== PAINEL DE CADASTRO ===================== -->
         <p:panel header="Cadastro de Funcionário" style="margin-top:30px;">
+
+            <!-- GRID DE CAMPOS DO FORMULÁRIO -->
             <h:panelGrid columns="2" cellpadding="5">
 
+                <!-- Campo: Nome -->
                 <p:outputLabel value="Nome:" for="nome" />
-                <p:inputText id="nome" value="#{funcionarioBean.funcionario.nome}" />
+                <p:inputText id="nome" 
+                             value="#{funcionarioBean.funcionario.nome}"
+                             required="true" 
+                             label="Nome" />
 
+                <!-- Campo: Cargo -->
                 <p:outputLabel value="Cargo:" for="cargo" />
-                <p:inputText id="cargo" value="#{funcionarioBean.funcionario.cargo}" />
+                <p:inputText id="cargo" 
+                             value="#{funcionarioBean.funcionario.cargo}"
+                             required="true" 
+                             label="Cargo" />
 
+                <!-- Campo: Salário -->
                 <p:outputLabel value="Salário:" for="salario" />
-                <p:inputText id="salario" value="#{funcionarioBean.funcionario.salario}" />
+                <p:inputText id="salario" 
+                             value="#{funcionarioBean.funcionario.salario}"
+                             required="true" 
+                             label="Salário" />
 
-                <p:outputLabel value="Data Admissão:" for="dataAdmissao" />
-                <p:calendar id="dataAdmissao" value="#{funcionarioBean.funcionario.dataAdmissao}" />
+                <!-- Campo: Data de Admissão -->
+                <p:outputLabel value="Data de Admissão:" for="dataAdmissao" />
+                <p:calendar id="dataAdmissao"
+                            value="#{funcionarioBean.funcionario.dataAdmissao}"
+                            pattern="dd/MM/yyyy" 
+                            required="true"
+                            label="Data de Admissão" />
 
             </h:panelGrid>
 
-            <p:commandButton value="Salvar Funcionário"
+            <!-- Botão de salvar funcionário -->
+            <p:commandButton value="Salvar" 
                              action="#{funcionarioBean.salvar}"
-                             update="@form"
-                             icon="pi pi-save" />
+                             update="@form tabelaFuncionarios"
+                             icon="pi pi-save"
+                             style="margin-top:10px;" />
+
         </p:panel>
-        <p:separator/>
-        
+
+
+        <p:separator style="margin:20px 0;" />
+
+        <!-- ===================== LISTAGEM DE FUNCIONÁRIOS ===================== -->
+        <p:panel header="Lista de Funcionários">
+
+            <!-- DataTable do PrimeFaces com paginação -->
+            <p:dataTable id="tabelaFuncionarios"
+                         value="#{funcionarioBean.funcionarios}" 
+                         var="f"
+                         paginator="true"
+                         rows="5"
+                         emptyMessage="Nenhum funcionário encontrado."
+                         style="margin-top:10px;">
+
+                <!-- Coluna: ID -->
+                <p:column headerText="ID" style="width:5%">
+                    <h:outputText value="#{f.id}" />
+                </p:column>
+
+                <!-- Coluna: Nome -->
+                <p:column headerText="Nome">
+                    <h:outputText value="#{f.nome}" />
+                </p:column>
+
+                <!-- Coluna: Cargo -->
+                <p:column headerText="Cargo">
+                    <h:outputText value="#{f.cargo}" />
+                </p:column>
+
+                <!-- Coluna: Salário -->
+                <p:column headerText="Salário">
+                    <h:outputText value="#{f.salario}" />
+                </p:column>
+
+                <!-- Coluna: Data de Admissão -->
+<!--                 <p:column headerText="Admissão"> -->
+<!--                     <h:outputText value="#{f.dataAdmissao}"> -->
+<!--                         <f:convertDateTime pattern="dd/MM/yyyy" /> -->
+<!--                     </h:outputText> -->
+<!--                 </p:column> -->
+
+                <!-- Coluna: Ações (Editar e Excluir) -->
+                <p:column headerText="Ações" style="width:15%; text-align:center;">
+
+                    <!-- Botão Editar -->
+                    <p:commandButton icon="pi pi-pencil" 
+                                     title="Editar"
+                                     actionListener="#{funcionarioBean.setFuncionario(f)}"
+                                     update="formFuncionario" 
+                                     process="@this" />
+
+                    <!-- Botão Excluir -->
+                    <p:commandButton icon="pi pi-trash" 
+                                     title="Excluir"
+                                     actionListener="#{funcionarioBean.excluir(f.id)}"
+                                     update="tabelaFuncionarios" 
+                                     styleClass="ui-button-danger" />
+                </p:column>
+
+            </p:dataTable>
+        </p:panel>
+
     </h:form>
+
 </ui:composition>

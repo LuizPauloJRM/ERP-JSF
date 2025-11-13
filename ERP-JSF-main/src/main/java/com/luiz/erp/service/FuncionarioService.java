@@ -11,7 +11,7 @@ import com.luiz.erp.model.Funcionario;
 public class FuncionarioService {
 
     // EntityManagerFactory é a "fábrica" de conexões com o banco
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cadastrosbasicos");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("luiz");
 
     // Método para salvar (inserir) um funcionário no banco
     public void salvar(Funcionario funcionario) {
@@ -43,7 +43,7 @@ public class FuncionarioService {
         }
     }
 
-    // 🔹 Método para listar todos os funcionários
+    //Método para listar todos os funcionários
     public List<Funcionario> listar() {
         EntityManager em = emf.createEntityManager();
         List<Funcionario> funcionarios = null;
@@ -57,7 +57,7 @@ public class FuncionarioService {
         return funcionarios;
     }
 
-    // 🔹 Método para buscar um funcionário pelo ID
+    // Método para buscar um funcionário pelo ID
     public Funcionario buscarPorId(Long id) {
         EntityManager em = emf.createEntityManager();
         Funcionario funcionario = null;
@@ -71,7 +71,7 @@ public class FuncionarioService {
         return funcionario;
     }
 
-    // 🔹 Método para excluir um funcionário
+    // Método para excluir um funcionário
     public void excluir(Long id) {
         EntityManager em = emf.createEntityManager();
         try {

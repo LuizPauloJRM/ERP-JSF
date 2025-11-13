@@ -4,27 +4,19 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="luiz"
-		transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="luiz" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<properties>
-			<!-- Configuração do banco de dados -->
-			<property name="javax.persistence.jdbc.driver"
-				value="com.mysql.cj.jdbc.Driver" />
-			<!-- Local banco : indicando para seu banco e porta cursojsfprimefaces -->
-			<property name="javax.persistence.jdbc.url"				
+			<!-- Configuração do banco de dados MySQL -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/cursojsfprimefaces?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
-
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-
-
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 
-			<!-- Hibernate -->
-			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.MySQL8Dialect" />
+			<!-- Configuração do Hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
