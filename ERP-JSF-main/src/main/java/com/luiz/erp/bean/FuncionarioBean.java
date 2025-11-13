@@ -9,6 +9,17 @@ import javax.inject.Named;
 
 import com.luiz.erp.model.Funcionario;
 import com.luiz.erp.service.FuncionarioService;
+/*
+ * Usuário preenche o formulário na tela (funcionario.xhtml);
+
+	Clica em “Salvar” → chama #{funcionarioBean.salvar};
+
+	O FuncionarioBean recebe o objeto e chama service.salvar(funcionario);
+
+	O FuncionarioService abre uma transação JPA e insere o registro no banco;
+
+	Após sucesso, o Bean atualiza a lista e limpa o formulário.
+ */
 
 @Named("funcionarioBean")       // nome usado na view: #{funcionarioBean}
 @ViewScoped                     // mantém os dados enquanto o usuário estiver na mesma página

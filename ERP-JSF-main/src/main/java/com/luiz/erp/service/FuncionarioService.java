@@ -5,7 +5,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import com.luiz.erp.model.Funcionario;
-
+//Get vai iniciar minha transação
+//em persistence (funcionario) -> Referencia minhas configurações gerenciamento no persistence
+//get transation confirma minha transação ao efetivar envia ao banco 
 // DAO = Data Access Object
 // Responsável pela comunicação entre a aplicação e o banco de dados
 public class FuncionarioService {
@@ -14,6 +16,13 @@ public class FuncionarioService {
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("luiz");
 
     // Método para salvar (inserir) um funcionário no banco
+    //em.merge(funcionario) sincroniza obj funcionario  com registro no banco
+    //em. Uma abreviação para o entity manager
+    /*
+	 * em.persist(): Inserir um novo registro. em.find(): Buscar um registro pelo
+	 * ID. em.merge(): Atualizar um registro. em.remove(): Excluir um registro.
+	 * 
+	 */
     public void salvar(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -27,7 +36,7 @@ public class FuncionarioService {
             em.close(); 
         }
     }
-
+    //rollback caso ocorra erro transação é desfeita
     //Método para atualizar um funcionário existente
     public void atualizar(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
