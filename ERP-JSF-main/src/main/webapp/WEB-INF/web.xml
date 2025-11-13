@@ -7,7 +7,7 @@
 	<display-name>JSF E PRIMEFACES</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>GestaoEmpresas.xhtml</welcome-file>
+		<welcome-file>GestaoEmpresas.jsf</welcome-file>
 	</welcome-file-list>
 	
 	<context-param>
@@ -42,6 +42,6 @@
 
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.xhtml</url-pattern>
+		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
 </web-app>

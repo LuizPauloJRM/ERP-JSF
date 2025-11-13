@@ -9,8 +9,6 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.jboss.weld.context.RequestContext;
-
 import com.luiz.erp.model.Empresa;
 import com.luiz.erp.model.RamoAtividade;
 import com.luiz.erp.model.TipoEmpresa;
