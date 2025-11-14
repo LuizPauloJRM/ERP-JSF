@@ -5,7 +5,6 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <!-- FORMULÁRIO PRINCIPAL -->
- <h2>Cadastro funcionarios</h2>
     <h:form id="formFuncionario">
 
         <!-- ===================== PAINEL DE CADASTRO ===================== -->
@@ -108,10 +107,13 @@
 
                     <!-- Botão Excluir -->
                     <p:commandButton icon="pi pi-trash" 
-                                     title="Excluir"
-                                     actionListener="#{funcionarioBean.excluir(f.id)}"
-                                     update="tabelaFuncionarios" 
-                                     styleClass="ui-button-danger" />
+					                 title="Excluir"
+					                 action="#{funcionarioBean.excluir(f.id)}"
+					                 update="tabelaFuncionarios"
+					                 styleClass="ui-button-danger"
+					                 process="@this"
+					                 onclick="return confirm('Deseja realmente excluir este funcionário?');" />
+
                 </p:column>
 
             </p:dataTable>

@@ -22,27 +22,27 @@ import javax.persistence.TemporalType;
 //Gerador da sequencia e atributos 
 @Entity
 @Table(name = "funcionario")
-public class Funcionario implements Serializable{
-	
+public class Funcionario implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nome;
 	private String cargo;
-	
+
 	private BigDecimal salario;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dataAdmissao;
 
-	//Vinculo de funcionario a empresa, relacionamento chave estrangeira
+	// Vinculo de funcionario a empresa, relacionamento chave estrangeira
 	@JoinColumn(name = "empresa_id")
 	private Empresa empresa;
 
-	//Get e Set
+	// Get e Set
 	public String getNome() {
 		return nome;
 	}
@@ -90,14 +90,13 @@ public class Funcionario implements Serializable{
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-	
-	
-	//Equals e hash de ID - Nunca se repete 
+
+	// Equals e hash de ID - Nunca se repete
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -109,6 +108,5 @@ public class Funcionario implements Serializable{
 		Funcionario other = (Funcionario) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
+
 }

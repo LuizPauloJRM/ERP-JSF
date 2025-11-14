@@ -3,11 +3,12 @@ package com.luiz.erp.service;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import com.luiz.erp.model.Empresa;
 import com.luiz.erp.model.Funcionario;
-//Get vai iniciar minha transação
-//em persistence (funcionario) -> Referencia minhas configurações gerenciamento no persistence
-//get transation confirma minha transação ao efetivar envia ao banco 
+
 // DAO = Data Access Object
 // Responsável pela comunicação entre a aplicação e o banco de dados
 public class FuncionarioService {
@@ -15,28 +16,34 @@ public class FuncionarioService {
     // EntityManagerFactory é a "fábrica" de conexões com o banco
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("luiz");
 
-    // Método para salvar (inserir) um funcionário no banco
-    //em.merge(funcionario) sincroniza obj funcionario  com registro no banco
-    //em. Uma abreviação para o entity manager
-    /*
-	 * em.persist(): Inserir um novo registro. em.find(): Buscar um registro pelo
-	 * ID. em.merge(): Atualizar um registro. em.remove(): Excluir um registro.
-	 * 
-	 */
+ // Método para salvar ou atualizar um funcionário no banco
     public void salvar(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
         try {
-            em.getTransaction().begin(); // inicia transação
-            em.persist(funcionario); // insere o funcionário no banco
+            em.getTransaction().begin(); // inicia a transação
+
+            // Verifica se o funcionário está associado a uma empresa
+            if (funcionario.getEmpresa() != null && funcionario.getEmpresa().getId() != null) {
+                // Busca a empresa gerenciada no banco
+                Empresa empresaManaged = em.find(Empresa.class, funcionario.getEmpresa().getId());
+                if (empresaManaged == null) {
+                    throw new IllegalArgumentException("Empresa não encontrada com ID: " + funcionario.getEmpresa().getId());
+                }
+                funcionario.setEmpresa(empresaManaged); // associa a empresa gerenciada
+            }
+
+            // merge cuida de inserir ou atualizar dependendo do estado da entidade
+            em.merge(funcionario);
+
             em.getTransaction().commit(); // confirma a transação
         } catch (Exception e) {
-            em.getTransaction().rollback(); // desfaz em caso de erro
+            em.getTransaction().rollback(); // desfaz a transação em caso de erro
             e.printStackTrace();
         } finally {
-            em.close(); 
+            em.close(); // fecha o EntityManager
         }
     }
-    //rollback caso ocorra erro transação é desfeita
+
     //Método para atualizar um funcionário existente
     public void atualizar(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
@@ -80,21 +87,30 @@ public class FuncionarioService {
         return funcionario;
     }
 
-    // Método para excluir um funcionário
+   
+ // Método para excluir um funcionário pelo ID
     public void excluir(Long id) {
         EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction(); // pega a transação
         try {
+            tx.begin(); // inicia a transação
+            
+            // Busca o funcionário gerenciado
             Funcionario funcionario = em.find(Funcionario.class, id);
             if (funcionario != null) {
-                em.getTransaction().begin();
-                em.remove(funcionario);
-                em.getTransaction().commit();
+                em.remove(funcionario); // remove a entidade gerenciada
+            } else {
+                System.out.println("Funcionário não encontrado com ID: " + id);
             }
+
+            tx.commit(); // confirma a exclusão
         } catch (Exception e) {
-            em.getTransaction().rollback();
+            if (tx.isActive()) { // garante que a transação só será revertida se estiver ativa
+                tx.rollback(); 
+            }
             e.printStackTrace();
         } finally {
-            em.close();
+            em.close(); // fecha EntityManager
         }
     }
 }
