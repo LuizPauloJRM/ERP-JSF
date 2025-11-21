@@ -74,8 +74,16 @@
                              action="#{funcionarioBean.salvar}"
                              update="@form tabelaFuncionarios"
                              icon="pi pi-save"
-                             style="margin-top:10px;" />
-
+                             style="margin-top:10px;" /> 
+                                                         
+            <p:commandButton value="Novo" 
+            				 action="#{funcionarioBean.novo}"/>
+            				 
+            <p:commandButton value="Limpar" 
+            				 type="reset" />
+            				 
+            <p:commandButton value="Remove" 
+            				 action="#{funcionarioBean.remove}"/>
         </p:panel>
 
 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<title>Login</title>
+	<style>
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	height: 100vh;
+	display: flex;
+}
+
+/* LADO ESQUERDO - imagem ou cor */
+.left-side {
+	flex: 1;
+	background: #0d1b2a; /* azul escuro */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 32px;
+	font-weight: bold;
+}
+
+/* LADO DIREITO - formulário */
+.right-side {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-box {
+	width: 80%;
+	max-width: 350px;
+	padding: 30px;
+	border-radius: 8px;
+	background: #ffffff;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.form-grid {
+	width: 100%;
+}
+
+.login-btn {
+	width: 100%;
+	margin-top: 15px;
+	padding: 10px;
+	background: #1b263b;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.login-btn:hover {
+	background: #415a77;
+}
+</style>
+</h:head>
+
+<h:body>
+
+	<!-- DIV LADO ESQUERDO -->
+	<div class="left-side">Developer's Java LTDA</div>
+
+	<!-- DIV LADO DIREITO -->
+	<div class="right-side">
+
+		<h:form id="formLogin" class="login-box">
+
+			<h2>Login</h2>
+
+			<h:panelGrid columns="2" columnClasses="label,value"
+				class="form-grid" cellpadding="5">
+
+				<h:inputText value="#{usuarioBean.usuario.login}" />
+				<h:inputSecret value="#{usuarioBean.usuario.senha}" />
+
+				<h:commandButton value="Entrar" action="#{usuarioBean.logar}" />
+				<h:outputLabel for="senha" value="Senha:" />
+				<h:inputSecret id="senha" style="width:100%" />
+
+			</h:panelGrid>
+
+
+
+		</h:form>
+
+	</div>
+
+</h:body>
+
+</html>

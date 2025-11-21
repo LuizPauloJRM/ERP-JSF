@@ -32,8 +32,10 @@ public class Funcionario implements Serializable {
 
 	private String nome;
 	private String cargo;
-	
 	private String sexo;
+	
+	private String login;
+	private String senha;
 	
 
 	private BigDecimal salario;
@@ -119,6 +121,13 @@ public class Funcionario implements Serializable {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
+	 
+	//login e senha para funcionario
+	public String getLogin() { return login; }
+	public void setLogin(String login) { this.login = login; }
+
+	public String getSenha() { return senha; }
+	public void setSenha(String senha) { this.senha = senha; }
 
 	// Equals e hash de ID - Nunca se repete
 	@Override
