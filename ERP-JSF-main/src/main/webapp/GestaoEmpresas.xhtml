@@ -7,9 +7,10 @@
 	template="/WEB-INF/template/Layout.xhtml">
 	<!-- Para usar o template Layout -->
 	<!--  	http://localhost:8080/curso-jsf-e-primefaces-essencial/GestaoEmpresas.xhtml -->
+	<!-- http://localhost:8080/curso-jsf-e-primefaces-essencial/ -->
 	<ui:define name="titulo">
 		Cadastro de Empresas
-	</ui:define>	
+	</ui:define>
 
 	<!-- Template facelets  : Areas Fixas como rodape menu lateral cabeçalho  -->
 	<ui:define name="conteudo">
@@ -72,9 +73,8 @@
 					</p:commandButton>
 				</f:facet>
 			</p:toolbar>
-
 			<p:spacer height="20px" />
-
+			<!-- organiza dados em linhas e colunas -->
 			<p:dataTable id="empresasDataTable"
 				value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa"
 				emptyMessage="Nenhuma informação a ser exibida" paginator="true"
@@ -109,6 +109,7 @@
 
 				<p:defaultCommand target="salvarCommandButton" scope="empresaDialog" />
 
+				<!-- Defini uma coluna com componentes columns-->
 				<h:panelGrid id="empresaPanelGrid" columns="2"
 					rendered="#{gestaoEmpresasBean.empresa ne null}">
 					<p:outputLabel value="Razão social: " for="razaoSocial" />
@@ -155,11 +156,12 @@
 		</h:form>
 		<p:separator />
 		<!-- Inclui o cadastro de funcionários logo abaixo do cadastro de empresas -->
-		<ui:include src="/WEB-INF/pages/funcionarios/cadastro-funcionario.xhtml" />
-		
-		<p:separator/>
-		
+		<ui:include
+			src="/WEB-INF/pages/funcionarios/cadastro-funcionario.xhtml" />
+
+		<p:separator />
+
 		<ui:include src="/WEB-INF/pages/relatorios/relatorios.xhtml" />
-		
+
 	</ui:define>
 </ui:composition>

@@ -1,5 +1,6 @@
 <ui:composition 
     xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
@@ -7,7 +8,7 @@
     <!-- FORMULÁRIO PRINCIPAL -->
     <h:form id="formFuncionario">
 
-        <!-- ===================== PAINEL DE CADASTRO ===================== -->
+        <!-- Painel Cadastro -->
         <p:panel header="Cadastro de Funcionário" style="margin-top:30px;">
 
             <!-- GRID DE CAMPOS DO FORMULÁRIO -->
@@ -26,6 +27,17 @@
                              value="#{funcionarioBean.funcionario.cargo}"
                              required="true" 
                              label="Cargo" />
+                             
+               <!-- Componentes com várias opções ou list ou array -->              
+               <h:selectManyMenu id="frameworks"  style="height:110px;"
+               value="#{funcionarioBean.funcionario.frameworks}">
+               		<f:selectItem itemValue="Spring Boot"/>
+               		<f:selectItem itemValue="Hibernate"/>
+               		<f:selectItem itemValue="JSF"/>
+               		<f:selectItem itemValue="Primefaces"/>
+               		<f:selectItem itemValue="React"/>
+               		<f:selectItem itemValue="Angular"/>
+               </h:selectManyMenu>
 
                 <!-- Campo: Salário -->
                 <p:outputLabel value="Salário:" for="salario" />
@@ -41,6 +53,15 @@
                             pattern="dd/MM/yyyy" 
                             required="true"
                             label="Data de Admissão" />
+                            
+                 <!-- Campo Sexo masculino ou feminino -->           
+                 <h:outputLabel value="Sexo:" />
+				
+				<h:selectOneMenu id="campoSexo" value="#{funcionarioBean.funcionario.sexo}">
+					<f:selectItem itemValue="Selecione..." noSelectionOption="true"/>
+					<f:selectItem itemValue="Masculino"/>
+					<f:selectItem itemValue="Feminino"/>				
+				</h:selectOneMenu>
 
             </h:panelGrid>
 
@@ -56,9 +77,9 @@
 
         <p:separator style="margin:20px 0;" />
 
-        <!-- ===================== LISTAGEM DE FUNCIONÁRIOS ===================== -->
+        <!-- Listagem de funcionarios  -->
         <p:panel header="Lista de Funcionários">
-
+			
             <!-- DataTable do PrimeFaces com paginação -->
             <p:dataTable id="tabelaFuncionarios"
                          value="#{funcionarioBean.funcionarios}" 
@@ -88,12 +109,19 @@
                     <h:outputText value="#{f.salario}" />
                 </p:column>
 
-                <!-- Coluna: Data de Admissão -->
-<!--                 <p:column headerText="Admissão"> -->
-<!--                     <h:outputText value="#{f.dataAdmissao}"> -->
-<!--                         <f:convertDateTime pattern="dd/MM/yyyy" /> -->
-<!--                     </h:outputText> -->
-<!--                 </p:column> -->
+                <p:column headerText="Sexo">
+                    <h:outputText value="#{f.sexo}" />
+                </p:column>
+                               
+<!--                 Coluna: Data de Admissão -->
+                <p:column headerText="Admissão">
+                    <h:outputText value="#{f.dataAdmissao}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                </p:column>
+
+
+			
 
                 <!-- Coluna: Ações (Editar e Excluir) -->
                 <p:column headerText="Ações" style="width:15%; text-align:center;">

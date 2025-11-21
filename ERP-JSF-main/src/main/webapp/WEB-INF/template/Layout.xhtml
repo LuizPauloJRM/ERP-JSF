@@ -14,8 +14,11 @@
 <h:body>
 
 	<header>
+
 		<h1>Developer's Java LTDA</h1>
 	</header>
+	<!-- Renderizar imagem  pelo endereco da imagem -->
+	<h:graphicImage height="75" width="75" library="assets" name="erplogo2.png"/>
 
 	<div id="container">
 		<!-- MENU LATERAL -->
@@ -25,11 +28,11 @@
 				<p:commandLink value=" Empresas"
 					action="/pages/empresas/gestaoEmpresas.xhtml?faces-redirect=true"
 					styleClass="menu-item" />
-					
+
 				<p:commandLink value=" RH"
 					action="cadastro-funcionario.xhtml?faces-redirect=true"
 					styleClass="menu-item" />
-					
+
 				<p:commandLink value=" Financeiro"
 					action="/pages/financeiro/cadastro-lancamento.xhtml?faces-redirect=true"
 					styleClass="menu-item" />
@@ -58,7 +61,7 @@
 				styleClass="ui-confirmdialog-yes" />
 		</p:confirmDialog>
 	</h:form>
-	
+
 
 </h:body>
 </html>

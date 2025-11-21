@@ -32,11 +32,30 @@ public class Funcionario implements Serializable {
 
 	private String nome;
 	private String cargo;
+	
+	private String sexo;
+	
 
 	private BigDecimal salario;
+	
+	private String [] frameworks;
 
 	@Temporal(TemporalType.DATE)
 	private Date dataAdmissao;
+	
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	
+	public String[] getFrameworks() {
+		return frameworks;
+	}
+	public void setFrameworks(String[] frameworks) {
+		this.frameworks = frameworks;
+	}
 
 	// Vinculo de funcionario a empresa, relacionamento chave estrangeira
 	@JoinColumn(name = "empresa_id")
