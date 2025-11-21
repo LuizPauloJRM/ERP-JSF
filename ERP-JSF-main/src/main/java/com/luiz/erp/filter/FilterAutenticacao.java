@@ -22,7 +22,7 @@ public class FilterAutenticacao  implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("Invocando filter...");
+//		System.out.println("Invocando filter...");
 		chain.doFilter(request, response);
 		
 		
