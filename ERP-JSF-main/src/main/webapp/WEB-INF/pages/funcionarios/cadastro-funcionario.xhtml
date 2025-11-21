@@ -38,6 +38,10 @@
                		<f:selectItem itemValue="React"/>
                		<f:selectItem itemValue="Angular"/>
                </h:selectManyMenu>
+               
+               <!-- Checkbox -->
+               <h:outputLabel value="Ativo: "/>
+               <h:selectBooleanCheckbox value="#{funcionarioBean.funcionario.ativo}"/>
 
                 <!-- Campo: Salário -->
                 <p:outputLabel value="Salário:" for="salario" />
@@ -108,11 +112,18 @@
                 <p:column headerText="Salário">
                     <h:outputText value="#{f.salario}" />
                 </p:column>
-
+	
                 <p:column headerText="Sexo">
                     <h:outputText value="#{f.sexo}" />
                 </p:column>
                                
+                <p:column headerText="Frameworks">
+                    <h:outputText value="#{f.frameworks}" />
+                </p:column>
+                
+                <p:column headerText="Ativo">
+                    <h:outputText value="#{f.ativo}" />
+                </p:column>
 <!--                 Coluna: Data de Admissão -->
                 <p:column headerText="Admissão">
                     <h:outputText value="#{f.dataAdmissao}">

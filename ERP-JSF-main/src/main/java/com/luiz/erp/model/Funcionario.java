@@ -39,10 +39,20 @@ public class Funcionario implements Serializable {
 	private BigDecimal salario;
 	
 	private String [] frameworks;
+	
+	private boolean ativo;
 
 	@Temporal(TemporalType.DATE)
 	private Date dataAdmissao;
 	
+	
+	
+	public boolean isAtivo() {
+		return ativo;
+	}
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
