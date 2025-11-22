@@ -13,4 +13,17 @@
     <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="com.luiz.erp.model.Funcionario"/>
+    <fullyQualifiedTypeName name="com.luiz.erp.model.Empresa"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebFilter"/>
+    <fullyQualifiedTypeName name="javax.servlet.Filter"/>
+    <fullyQualifiedTypeName name="javax.servlet.FilterConfig"/>
+    <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="com.luiz.erp.controller.JPAUtil"/>
+    <fullyQualifiedTypeName name="com.luiz.erp.util.JPAUtil"/>
+    <fullyQualifiedTypeName name="javax.faces.view.ViewScoped"/>
 </qualifiedTypeNameHistroy>
